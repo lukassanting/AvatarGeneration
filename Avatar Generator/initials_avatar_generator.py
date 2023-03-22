@@ -4,9 +4,9 @@
 
 # Imports
 # Note! Uses pil library: https://pillow.readthedocs.io/en/stable/installation.html
+# pip install --upgrade Pillow
 from PIL import Image, ImageDraw, ImageFont
 import random
-
 
 def generate_image_from_name():
 
