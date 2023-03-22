@@ -1,0 +1,6 @@
+A list of commands to run in order t get the art_avatar_generator.py file to work.
+
+python -m venv venv
+.\venv\Scripts\activate
+python -m pip install openai
+$ENV:OPENAI_API_KEY = "<your-key-value-here>"
