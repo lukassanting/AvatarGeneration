@@ -1,5 +1,5 @@
 # ! DISCLAIMER !
-# Not my idea originally, based on an article by Real Python
+# Not my idea originally, based on & uses code from an article by Real Python
 # Link to original article: https://realpython.com/generate-images-with-dalle-openai-api/
 
 # Imports
