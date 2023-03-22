@@ -52,4 +52,5 @@ def generate_image_from_name():
     print(f"Avatar image saved as {filename}")
 
 
-generate_image_from_name()
+if __name__ == "__main__":
+    generate_image_from_name()

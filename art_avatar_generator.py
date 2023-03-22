@@ -18,6 +18,10 @@ def generate_image_from_prompt():
 
     # input
     input_prompt = input("Provide a sentence to generate an image from: ")
+    n_images = int(input("How many images do you want to generate?"))
+    image_size = input("Provide a size for the images, e.g. 256x256: ")
+
+    # directory
     output_dir = Path.cwd() / "responses"
     output_dir.mkdir(exist_ok=True)
 
@@ -27,8 +31,8 @@ def generate_image_from_prompt():
     # generate image
     response = openai.Image.create(
         prompt=input_prompt,
-        n=1,
-        size="256x256",
+        n=n_images,
+        size=image_size,
         response_format="b64_json"
     )
 
@@ -64,9 +68,5 @@ def convert_data_to_image(file_name):
             png.write(image_data)
 
 
-def main(args):
-    generate_image_from_prompt()
-
-
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    generate_image_from_prompt()

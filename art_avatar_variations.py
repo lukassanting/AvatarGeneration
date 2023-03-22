@@ -23,10 +23,13 @@ def generate_variations_from_image(file_name):
         saved_response = json.load(json_file)
         image_data = b64decode(saved_response["data"][0]["b64_json"])
 
+    n_images = int(input("How many images do you want to generate?"))
+    image_size = input("Provide a size for the images, e.g. 256x256: ")
+
     response = openai.Image.create_variation(
         image=image_data,
-        n=3,
-        size="256x256",
+        n=n_images,
+        size=image_size,
         response_format="b64_json",
     )
 
@@ -38,17 +41,12 @@ def generate_variations_from_image(file_name):
     convert_data_to_image(new_file_name)
 
 
-def main(args):
-    generate_variations_from_image(args[0])
-
-
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        arg = [input("Please provide a .json file to convert: ")]
-        main(arg)
+        generate_variations_from_image(
+            input("Please provide a .json file to convert: "))
     elif len(sys.argv) > 2:
-        arg = [
-            input("Too many arguments provided. Please provide a .json file to convert: ")]
-        main(arg)
+        generate_variations_from_image(
+            input("Too many arguments provided. Please provide a .json file to convert: "))
     else:
-        main(sys.argv[1:])
+        generate_variations_from_image(sys.argv[1:][0])
